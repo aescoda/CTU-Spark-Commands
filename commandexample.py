@@ -110,7 +110,7 @@ def webhook():
         # Once this is done, we need to extract the command
         # Look how easy is to play with strings in Python!!:
         if "/search" in sbuffer["message"]:
-            query =
+            query = sbuffer["message"].replace('/search', '')
             #[debug]
             print ("Asked to search something")
             sheetId = os.environ.get('SHEET_ID', None)
