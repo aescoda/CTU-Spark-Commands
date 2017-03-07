@@ -2,7 +2,7 @@
   "name": "CTU Spark Commands Example",
   "description": "Simple example that uses only one command sent throught Spark to trigger an action",
   "repository": "https://github.com/alexgrgr/spark-commands",
-  "logo": "http://xvir.github.io/img/apiai.png",
+  "logo": "https://raw.githubusercontent.com/alexgrgr/CTU---Spark-Commands/master/docs/images/Cisco%20Logo.png",
   "keywords": ["commands", "CTU","Cisco Spark"],
   "env": {
     "SPARK_ACCESS_TOKEN": {
