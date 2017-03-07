@@ -54,6 +54,7 @@ You will be presented with a page as follow:
 + You will also need to set this *environmental variables*:
 
 ![Variables](docs/images/newappvar.JPG)
+
 |                Variable | Value                                                            |
 |------------------------:|:-----------------------------------------------------------------|
 | SMARTSHEET_ACCESS_TOKEN | Your *Smartsheet*´s Token to access *API*                        |
