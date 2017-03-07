@@ -131,8 +131,7 @@ def webhook():
                 answer   = row.cells[0].value
             except:
                 # If the before object doesn´t exists
-                result = "Disculpe, no tenemos información de su pregunta "
-                            + query
+                result = "Disculpe, no tenemos información de su pregunta " + query
             else:
                 result = "La respuesta a **" + question + "** es: _" + answer
         else:
