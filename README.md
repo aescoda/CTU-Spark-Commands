@@ -8,7 +8,8 @@ This example demonstrates how you can use a simple command to make the bot retre
 
 A user needs to ask something very important, and in order to give him a fast answer, you want to deploy a bot that is able of understanding this question and give him an answer.
 
-But neither the bot knows the answer. As the data is confidential, the only place where you can store it is on a *Google spreadsheet*, so the bot will need to access *Google* throught it´s own API.
+But neither the bot knows the answer. As the data is confidential, the only place where you can store it is on a *Smartsheet*, so the bot will need to access
+*Smartseet* throught it´s own API.
 
 This first example will guide you throught the discovery of the necessary services for the next steps, such as Github, Heroku and the development platform of Spark.
 
@@ -36,11 +37,22 @@ Follow this link to create a Dyno and deploy the necessary code:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-3. **Prepare your Google's Token**
+You will be presented with a page as follow:
 
-Follow steps in [Documentation](http://smartsheet-platform.github.io/api-docs/#generating-access-token "Generate Access Token").
+![New Heroku App](docs/images/newapp.JPG)
+
++ Select Your App name and save it for later use. Also reffered as Dyno Name on this text.
++ Runtime selection choose Europe
++ Deploy!
+
+
+3. **Prepare your Smartsheet's Token**
+
+This data will be given to you. Smartsheet is a very useful Spreadsheet with a
+powerfull search engine. It will be used emulating a Database.
 
 > Write down the access token for a later use.
+> Also, write down the sheet ID
 
 4. **Environmental variables**
 
@@ -48,12 +60,11 @@ You will also need to set this *environmental variables* in [*Heroku*](https://d
 
 |                Variable | Value                                                            |
 |------------------------:|:-----------------------------------------------------------------|
-|                APP_NAME | Your Dyno´s name                                                  |
-| SMARTSHEET_ACCESS_TOKEN | Your *Google*´s Token to access *API*                        |
+| SMARTSHEET_ACCESS_TOKEN | Your *Smartsheet*´s Token to access *API*                        |
+|                SHEET_ID | The *Smartsheet*'s sheet ID were info is located                 |
 |      SPARK_ACCESS_TOKEN | Your bot´s Token to access *Spark* *API*                         |
 |               BOT_EMAIL | Your bot´s email to discard its own messages                     |
 
-> Also, the name you put to your Heroku Dyno is important for a later use. Please, set a name now.
 
 5. **Set a WebHook to your Dyno in Spark**
 
