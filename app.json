@@ -1,25 +1,22 @@
 {
   "name": "CTU Spark Commands Example",
   "description": "Simple example that uses only one command sent throught Spark to trigger an action",
-  "repository": "https://github.com/alexgrgr/spark-commands",
+  "repository": "https://github.com/alexgrgr/CTU---Spark-Commands",
   "logo": "https://raw.githubusercontent.com/alexgrgr/CTU---Spark-Commands/master/docs/images/Cisco%20Logo.png",
   "keywords": ["commands", "CTU","Cisco Spark"],
   "env": {
     "SPARK_ACCESS_TOKEN": {
-      "description": "Spark Access Token",
-      "value": ""
+      "description": "Spark Access Token"
     },
     "SMARTSHEET_ACCESS_TOKEN": {
-      "description": "Smartsheet Access Token",
-      "value": ""
+      "description": "Smartsheet Access Token"
     },
     "SHEET_ID":{
-      "description":"Sheet where data is located",
-      "value":""
+      "description":"Sheet where data is located"
     },
     "BOT_EMAIL": {
       "description": "Email Ending with @sparkbot.io Here",
-      "value": ""
+      "value": "@sparkbot.io"
     }
   }
 }

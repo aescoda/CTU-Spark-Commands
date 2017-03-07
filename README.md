@@ -25,7 +25,15 @@ So first step would be to create this fake account. By accessing the Spark's Dev
 
  > Write down the access token for a later use.
 
-2. **Prepare a PaaS (*Platform as a Service*) for executing the code that will compose your bot.**
+ 3. **Prepare your Smartsheet's Token**
+
+ This data will be given to you. Smartsheet is a very useful Spreadsheet with a
+ powerfull search engine. It will be used emulating a Database.
+
+ > Write down the access token for a later use.
+ > Also, write down the sheet ID
+ >
+3. **Prepare a PaaS (*Platform as a Service*) for executing the code that will compose your bot.**
 
 We are going to use *Heroku*, a very simple an easy to use Platform as a Service. This kind of service will allow you to upload your code in a variety of languages avoiding the need of configuring machines, operating systems, etc.
 
@@ -43,21 +51,9 @@ You will be presented with a page as follow:
 
 + Select Your App name and save it for later use. Also reffered as Dyno Name on this text.
 + Runtime selection choose Europe
-+ Deploy!
++ You will also need to set this *environmental variables*:
 
-
-3. **Prepare your Smartsheet's Token**
-
-This data will be given to you. Smartsheet is a very useful Spreadsheet with a
-powerfull search engine. It will be used emulating a Database.
-
-> Write down the access token for a later use.
-> Also, write down the sheet ID
-
-4. **Environmental variables**
-
-You will also need to set this *environmental variables* in [*Heroku*](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application "Set Env variables"):
-
+![Variables](docs/images/newappvar.JPG)
 |                Variable | Value                                                            |
 |------------------------:|:-----------------------------------------------------------------|
 | SMARTSHEET_ACCESS_TOKEN | Your *Smartsheet*´s Token to access *API*                        |
@@ -65,8 +61,10 @@ You will also need to set this *environmental variables* in [*Heroku*](https://d
 |      SPARK_ACCESS_TOKEN | Your bot´s Token to access *Spark* *API*                         |
 |               BOT_EMAIL | Your bot´s email to discard its own messages                     |
 
++ Deploy!
 
-5. **Set a WebHook to your Dyno in Spark**
+
+4. **Set a WebHook to your Dyno in Spark**
 
 Finally, in order to link Spark with your app you will need to set a target where Spark will send all messages received by the bot. This is called a **Webhook**. Please refer to the following documentation:
  [*Spark WebHook Creation*](https://developer.ciscospark.com/endpoint-webhooks-post.html "Create an Spark Webhook").
