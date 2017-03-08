@@ -133,10 +133,10 @@ def webhook():
                 question = row.cells[0].value
             except:
                 # If the before object doesn´t exists
-                result = "Disculpe, no tenemos información de su pregunta " + query
+                result = "Disculpe, no tenemos informacion de su pregunta " + query
                 print('no result')
             else:
-                result = "El Datasheet del dispositivo **" + question + "** esta [aquí](" + answer + ")"
+                result = "El Datasheet del dispositivo **" + question + "** esta [aqui](" + answer + ")"
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
