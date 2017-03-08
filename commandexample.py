@@ -110,7 +110,7 @@ def webhook():
 
         # Once this is done, we need to extract the command
         # Look how easy is to play with strings in Python!!:
-        if "/search" or "search" in sbuffer["message"]:
+        if "/search" in sbuffer["message"]:
             # Whe don´t need the word /search from the message
             query = sbuffer["message"].replace('/search', '')
             #[debug]
