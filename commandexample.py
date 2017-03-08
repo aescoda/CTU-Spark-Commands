@@ -116,6 +116,7 @@ def webhook():
             print ("Asked to search something")
             sheetId = os.environ.get('SHEET_ID', None)
             # Now we search
+            print ('search')
             search_res = smartsheet.Search.search_sheet(sheetId, query)
             # Result is a smartsheet.models.SearchResult object.
             # Try - except for managing exceptions. If the following doesn´t
@@ -130,15 +131,18 @@ def webhook():
                 # where the data I want is in here:
                 question = row.cells[1].value
                 answer   = row.cells[0].value
+                print('question')
+                print('answer')
             except:
                 # If the before object doesn´t exists
                 result = "Disculpe, no tenemos información de su pregunta " + query
+                print('no result')
             else:
                 result = "La respuesta a **" + question + "** es: _" + answer
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
-            comando válido. Introduzca el comando `/search`"
+            comando válido. Introduzca el comando /search"
             #[Debug]
             print(result)
         # Last thing is to send back the answer to the user. This will generate
