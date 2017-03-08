@@ -111,9 +111,10 @@ def webhook():
         # Once this is done, we need to extract the command
         # Look how easy is to play with strings in Python!!:
         if "/search" in sbuffer["message"]:
+            # Whe don´t need the word /search from the message
             query = sbuffer["message"].replace('/search', '')
             #[debug]
-            print ("Asked to search something")
+            print ("Asked to search " + query)
             sheetId = os.environ.get('SHEET_ID', None)
             # Now we search
             search_res = smartsheet.Search.search_sheet(sheetId, query)
@@ -128,16 +129,15 @@ def webhook():
                             include='discussions,attachments,columns,columnType')
                 # Answer is formatted in such a way that the cell where I know
                 # where the data I want is in here:
-                question = row.cells[1].value
-                answer   = row.cells[0].value
-                print(question)
-                print(answer)
+                answer   = row.cells[1].value
+                question = row.cells[0].value
             except:
                 # If the before object doesn´t exists
                 result = "Disculpe, no tenemos información de su pregunta " + query
                 print('no result')
             else:
-                result = "La respuesta a **" + question + "** es: _" + answer
+                result = "El Datasheet del dispositivo **" + question +
+                "** está [aquí](" + answer + ")"
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
@@ -182,7 +182,6 @@ def webhook():
 # running as a script, and not as a module of another script.
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-    print ("Starting app on port " +  str(port))
     #This will make your Flask app run with the following options. Debug
     # activates logs or verbose on the CLI where it is running
     app.run(debug=True, port=port, host='0.0.0.0', threaded=True)
