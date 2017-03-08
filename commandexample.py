@@ -136,8 +136,8 @@ def webhook():
                 result = "Disculpe, no tenemos información de su pregunta " + query
                 print('no result')
             else:
-                result = "El Datasheet del dispositivo **" + question +
-                "** está [aquí](" + answer + ")"
+                result = "El Datasheet del dispositivo **" + question
+                + "** está [aquí](" + answer + ")"
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
