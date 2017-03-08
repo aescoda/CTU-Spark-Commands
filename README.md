@@ -6,10 +6,10 @@ This example demonstrates how you can use a simple command to make the bot retre
 
 ###Use case
 
-A user needs to ask something very important, and in order to give him a fast answer, you want to deploy a bot that is able of understanding this question and give him an answer.
+A user needs to ask the datasheet of a Telepresence Device, and in order to give him a fast answer, you want to deploy a bot that is able of understanding this question and give him an answer.
 
-But neither the bot knows the answer. As the data is confidential, the only place where you can store it is on a *Smartsheet*, so the bot will need to access
-*Smartseet* throught it´s own API.
+But neither the bot knows the answer. As the data could be confidential, the only place where you can store it is on a *Smartsheet*, so the bot will need to access
+*Smartsheet* throught it´s own API.
 
 This first example will guide you throught the discovery of the necessary services for the next steps, such as Github, Heroku and the development platform of Spark.
 
@@ -25,7 +25,7 @@ So first step would be to create this fake account. By accessing the Spark's Dev
 
  > Write down the access token for a later use.
 
- 3. **Prepare your Smartsheet's Token**
+ 2. **Prepare your Smartsheet's Token**
 
  This data will be given to you. Smartsheet is a very useful Spreadsheet with a
  powerfull search engine. It will be used emulating a Database.
@@ -41,7 +41,7 @@ In *Heroku* terms, your app is contained in a so called Dyno, an isolated, virtu
 
 The code published here at Github can be easily contanerized so you will not have to code and just focus on how it works.
 
-Follow this link to create a Dyno and deploy the necessary code:
+Follow this link to create an account at Heroku, and deploy the necessary code automatically on a Dyno:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -49,7 +49,7 @@ You will be presented with a page as follow:
 
 ![New Heroku App](docs/images/newapp.JPG)
 
-+ Select Your App name and save it for later use. Also reffered as Dyno Name on this text.
++ Select Your App name and save it for later use. Also referred as Dyno Name on this text.
 + Runtime selection choose Europe
 + You will also need to set this *environmental variables*:
 
@@ -99,17 +99,17 @@ So you must set the following parameters:
 + **resource**: `message`
 + **event**: `created`
 
-> Now Spark knows where on the internet it must send the messages refered to your bot
+> Now Spark knows where on the internet it must send the messages referred to your bot
 
 ##Ready
 
-+ Any time your bot is reffered in a Space, or chatted on a 1-to-1 Space, Spark will send a WebHook to `https://[yourdynoname].herokuapp.com/webhook`
++ Any time your bot is referred in a Space, or chatted on a 1-to-1 Space, Spark will send a WebHook to `https://[yourdynoname].herokuapp.com/webhook`
 + Your Dyno is composed of some *Python* code over a web framework called *Flask*. Everytime a `GET` http request is received on the URL path `/webhook`, some code will be executed.
-+ First of all, the WebHook does not include the message. Instead, an `messageId` is provided. So in order to have it, a `GET` http request is sent to Spark.
++ First of all, the WebHook does not include the message. Instead, a `messageId` is provided. So in order to have it, a `GET` http request is sent to Spark.
 + Then, the message `/search [something]` from a user will be decompossed into the command and the query.
 + This logic will be applied:
 
-    **If `/search` exists, then search `[something]` in Google Spreadsheet**
+    **If `/search` exists, then search `[something]` in Smartsheet**
 
     **If `/search` does not exists, respond the user with the error**
 

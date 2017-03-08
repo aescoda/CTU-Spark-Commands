@@ -22,6 +22,7 @@
 # indicates that this code purpose is debugging throught the CLI or logs console.
 # They will not be presented anywhere else
 
+import requests
 import smartsheet
 import json
 import os
