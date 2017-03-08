@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 ################################################################################
 #                             COMMANDEXAMPLE                                   #
 #               https://yourdynoname.herokuapp.com:443/webhook                 #
@@ -136,7 +136,7 @@ def webhook():
                 result = "Disculpe, no tenemos información de su pregunta " + query
                 print('no result')
             else:
-                result = "El Datasheet del dispositivo **" + question + "** está [aquí](" + answer + ")"
+                result = "El Datasheet del dispositivo **" + question + "** esta [aquí](" + answer + ")"
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
