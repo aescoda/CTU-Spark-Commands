@@ -110,7 +110,7 @@ def webhook():
 
         # Once this is done, we need to extract the command
         # Look how easy is to play with strings in Python!!:
-        if "/search" in sbuffer["message"]:
+        if "/search" or "search" in sbuffer["message"]:
             # Whe don´t need the word /search from the message
             query = sbuffer["message"].replace('/search', '')
             #[debug]
@@ -133,14 +133,13 @@ def webhook():
                 question = row.cells[0].value
             except:
                 # If the before object doesn´t exists
-                result = "Disculpe, no tenemos informacion de su pregunta " + query
-                print('no result')
+                result = "Disculpe, no tenemos información de su pregunta " + query
             else:
-                result = "El Datasheet del dispositivo **" + question + "** esta [aqui](" + answer + ")"
+                result = "El Datasheet del dispositivo **" + question + "** está [aquí](" + answer + ")"
         else:
             #If this command is not in the message, tell the user.
             result = "Disculpe " + displayName + ", no he identificado un \
-            comando valido. Introduzca el comando /search"
+            comando válido. Introduzca el comando /search."
             #[Debug]
             print(result)
         # Last thing is to send back the answer to the user. This will generate
