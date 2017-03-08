@@ -149,7 +149,7 @@ def webhook():
         r = requests.post('https://api.ciscospark.com/v1/messages',
                      headers=spark_header,
                         data=json.dumps({"roomId":sbuffer["roomId"],
-                                       "markdown":sbuffer["message"]}))
+                                       "markdown":result}))
         #[Debug]
         print("Code after send_message POST: "+str(r.status_code))
         status= "Message sent to Spark"
