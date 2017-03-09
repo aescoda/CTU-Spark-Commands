@@ -8,8 +8,8 @@ This example demonstrates how you can use a simple command to make the bot retre
 
 A user needs to ask the datasheet of a Telepresence Device, and in order to give him a fast answer, you want to deploy a bot that is able of understanding this question and give him an answer.
 
-But neither the bot knows the answer. As the data could be confidential, the only place where you can store it is on a *Smartsheet*, so the bot will need to access
-*Smartsheet* throught it´s own API.
+But neither the bot knows the answer. As the data could be confidential, the only place where you can store it is on a database you own, so the bot will need to access it. In this example,
+*Smartsheet* will be used, and your bot is able to access *Smartsheet* throught it´s own API.
 
 This first example will guide you throught the discovery of the necessary services for the next steps, such as Github, Heroku and the development platform of Spark.
 
@@ -28,7 +28,7 @@ So first step would be to create this fake account. By accessing the Spark's Dev
  2. **Prepare your Smartsheet's Token**
 
  This data will be given to you. Smartsheet is a very useful Spreadsheet with a
- powerfull search engine. It will be used emulating a Database.
+ powerful search engine. It will be used for emulating a database.
 
  > Write down the access token for a later use.
  > Also, write down the sheet ID
@@ -37,7 +37,7 @@ So first step would be to create this fake account. By accessing the Spark's Dev
 
 We are going to use *Heroku*, a very simple an easy to use Platform as a Service. This kind of service will allow you to upload your code in a variety of languages avoiding the need of configuring machines, operating systems, etc.
 
-In *Heroku* terms, your app is contained in a so called Dyno, an isolated, virtualized Unix container, that provide the environment required to run an application.
+In *Heroku* terms, your app is contained in a so called Dyno, an isolated, virtualized Unix container, that provides the environment required to run an application.
 
 The code published here at Github can be easily contanerized so you will not have to code and just focus on how it works.
 
@@ -96,23 +96,25 @@ Your message needs to look this way:
 So you must set the following parameters:
 + **name**: `CTU Spark Commands Example`
 + **targetUrl**: where `[yourdynoname]` is the name given before to your Dyno
-+ **resource**: `message`
++ **resource**: `messages`
 + **event**: `created`
 
 > Now Spark knows where on the internet it must send the messages referred to your bot
 
 ##Ready
 
-+ Any time your bot is referred in a Space, or chatted on a 1-to-1 Space, Spark will send a WebHook to `https://[yourdynoname].herokuapp.com/webhook`
++ Any time your bot is mentioned in a Space, or chatted on a 1-to-1 Space, Spark will send a WebHook to `https://[yourdynoname].herokuapp.com/webhook`
 + Your Dyno is composed of some *Python* code over a web framework called *Flask*. Everytime a `GET` http request is received on the URL path `/webhook`, some code will be executed.
 + First of all, the WebHook does not include the message. Instead, a `messageId` is provided. So in order to have it, a `GET` http request is sent to Spark.
 + Then, the message `/search [something]` from a user will be decompossed into the command and the query.
 + This logic will be applied:
 
-    **If `/search` exists, then search `[something]` in Smartsheet**
+    **If `/search` exists, then search `[something]` in Smartsheet and respond with it to the user**
 
     **If `/search` does not exists, respond the user with the error**
 
 + End of the code, wait for next message.
 
-## Move to next example! [CTU Spark NLP](https://github.com/alexgrgr/CTU-Spark-NLP)
+## Move on to next example!: [CTU Spark NLP](https://github.com/alexgrgr/CTU-Spark-NLP)
+
+> **Final note:** this code talks directly to Spark's API. It is highly recommended to use an SDK (sometimes called *API wrapper*), to manage the communication and errors. In Python, you could use [ciscosparkapi](https://github.com/CiscoDevNet/ciscosparkapi)
