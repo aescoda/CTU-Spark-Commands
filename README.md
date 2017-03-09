@@ -32,7 +32,7 @@ So first step would be to create this fake account. By accessing the Spark's Dev
 
  > Write down the access token for a later use.
  > Also, write down the sheet ID
- >
+
 3. **Prepare a PaaS (*Platform as a Service*) for executing the code that will compose your bot.**
 
 We are going to use *Heroku*, a very simple an easy to use Platform as a Service. This kind of service will allow you to upload your code in a variety of languages avoiding the need of configuring machines, operating systems, etc.
@@ -114,3 +114,5 @@ So you must set the following parameters:
     **If `/search` does not exists, respond the user with the error**
 
 + End of the code, wait for next message.
+
+## Move to next example! [CTU Spark NLP](https://github.com/alexgrgr/CTU-Spark-NLP)

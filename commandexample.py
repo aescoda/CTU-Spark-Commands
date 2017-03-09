@@ -105,9 +105,6 @@ def webhook():
         sbuffer['personId']   = personId
         sbuffer['personEmail']= personEmail
         sbuffer['displayName']= displayName
-        # [Debug]
-        #print ("Buffer ACK")
-
         # Once this is done, we need to extract the command
         # Look how easy is to play with strings in Python!!:
         if "/search" in sbuffer["message"]:
